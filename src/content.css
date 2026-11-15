@@ -1,0 +1,138 @@
+/* SOOP 페이지 위에 얹히므로 상속을 끊고 자체 값만 쓴다. */
+
+.soopmarket-panel {
+  all: initial;
+  display: block;
+  box-sizing: border-box;
+  margin: 12px 0;
+  padding: 14px 16px;
+  border: 1px solid #d6dbe6;
+  border-left: 3px solid #1a56db;
+  border-radius: 9px;
+  background: #f4f6fb;
+  color: #161a22;
+  font: 13px/1.55 "Pretendard", "Malgun Gothic", "Segoe UI", system-ui, sans-serif;
+}
+.soopmarket-panel * { box-sizing: border-box; font-family: inherit; }
+
+/* 댓글 등록 버튼 옆에 놓이는 "구매" 버튼 */
+.soopmarket-slot {
+  all: initial;
+  display: inline-flex;
+  align-items: center;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.soopmarket-head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; margin-bottom: 10px;
+}
+.soopmarket-head strong { font-size: 14px; font-weight: 700; color: #161a22; flex: 1; }
+.soopmarket-balance {
+  font-size: 12.5px; font-weight: 600; color: #1a56db;
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.soopmarket-close {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px; border-radius: 6px;
+  color: #5b6272; font-size: 13px; cursor: pointer;
+}
+.soopmarket-close:hover { background: #e8ecf5; }
+.soopmarket-close:focus-visible { outline: 2px solid #1a56db; outline-offset: 2px; }
+
+.soopmarket-items { display: flex; flex-direction: column; gap: 6px; }
+.soopmarket-item {
+  display: grid;
+  grid-template-columns: 40px 1fr auto auto 30px auto;
+  align-items: center; gap: 8px;
+  padding: 7px 10px;
+  background: #ffffff;
+  border: 1px solid #e8ecf5;
+  border-radius: 6px;
+}
+.soopmarket-thumb {
+  width: 38px; height: 38px; border-radius: 6px;
+  background: #e8ecf5; overflow: hidden; display: block;
+}
+.soopmarket-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.soopmarket-name { font-weight: 600; color: #161a22; }
+.soopmarket-price {
+  font-size: 12px; color: #5b6272; white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.soopmarket-qty {
+  text-align: center; font-weight: 700; font-variant-numeric: tabular-nums;
+  color: #161a22;
+}
+
+.soopmarket-btn {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 28px; height: 28px; padding: 0 10px;
+  border: 1px solid #d6dbe6; border-radius: 6px;
+  background: #ffffff; color: #161a22;
+  font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.soopmarket-btn:hover:not(:disabled) { background: #e8ecf5; }
+.soopmarket-btn:focus-visible { outline: 2px solid #1a56db; outline-offset: 2px; }
+.soopmarket-btn:disabled { opacity: .5; cursor: not-allowed; }
+.soopmarket-btn.primary {
+  background: #1a56db; border-color: #1a56db; color: #ffffff; padding: 0 14px;
+}
+.soopmarket-btn.primary:hover:not(:disabled) { background: #1748bb; }
+.soopmarket-btn.qty { min-width: 30px; padding: 0; }
+/* SOOP의 등록 버튼과 높이를 맞춰 그 줄이 무너지지 않게 한다 */
+.soopmarket-btn.buy {
+  height: 32px; padding: 0 15px;
+  background: #1a56db; border-color: #1a56db; color: #ffffff;
+  font-family: "Pretendard", "Malgun Gothic", "Segoe UI", system-ui, sans-serif;
+}
+.soopmarket-btn.buy:hover:not(:disabled) { background: #1748bb; }
+
+.soopmarket-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; margin-top: 12px; padding-top: 10px;
+  border-top: 1px solid #e8ecf5;
+}
+.soopmarket-total {
+  font-size: 12.5px; font-weight: 600; color: #5b6272;
+  font-variant-numeric: tabular-nums;
+}
+.soopmarket-total.over { color: #b3261e; }
+
+.soopmarket-warn { margin-top: 8px; font-size: 12.5px; color: #97620a; }
+.soopmarket-warn:empty { display: none; }
+
+.soopmarket-fallback {
+  display: block; margin-top: 8px; padding: 9px 11px;
+  background: #e8ecf5; border-radius: 6px;
+  font-family: "Cascadia Mono", Consolas, monospace; font-size: 12.5px;
+  white-space: pre-wrap; word-break: break-all; color: #161a22;
+}
+
+@media (prefers-color-scheme: dark) {
+  .soopmarket-panel { background: #1a1e28; border-color: #303648; color: #e4e8f0; }
+  .soopmarket-panel strong { color: #e4e8f0; }
+  .soopmarket-balance { color: #6aa4ff; }
+  .soopmarket-close { color: #949cae; }
+  .soopmarket-close:hover { background: #303648; }
+  .soopmarket-btn.buy { background: #6aa4ff; border-color: #6aa4ff; color: #0b1220; }
+  .soopmarket-btn.buy:hover:not(:disabled) { background: #8ab8ff; }
+  .soopmarket-item { background: #12151c; border-color: #303648; }
+  .soopmarket-thumb { background: #232837; }
+  .soopmarket-name, .soopmarket-qty { color: #e4e8f0; }
+  .soopmarket-price, .soopmarket-total { color: #949cae; }
+  .soopmarket-total.over { color: #f2837b; }
+  .soopmarket-btn { background: #232837; border-color: #303648; color: #e4e8f0; }
+  .soopmarket-btn:hover:not(:disabled) { background: #303648; }
+  .soopmarket-btn.primary { background: #6aa4ff; border-color: #6aa4ff; color: #0b1220; }
+  .soopmarket-btn.primary:hover:not(:disabled) { background: #8ab8ff; }
+  .soopmarket-foot { border-top-color: #303648; }
+  .soopmarket-warn { color: #e0ab5a; }
+  .soopmarket-fallback { background: #232837; color: #e4e8f0; }
+}

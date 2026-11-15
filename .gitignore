@@ -1,0 +1,11 @@
+node_modules/
+
+# 확장 배포 패키지
+*.zip
+*.crx
+*.pem
+
+store-assets/
+tools/
+
+STORE.md

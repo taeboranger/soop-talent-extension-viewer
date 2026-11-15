@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "SoopTalent 시청자 — 달란트 시장",
+  "version": "0.1.1",
+  "description": "SOOP 방송국의 달란트 시장에서 보유 달란트를 확인하고 보상을 신청합니다. 시청자용.",
+
+  "host_permissions": [
+    "https://*.sooplive.com/*",
+    "https://soop-talent.cagea1.com/*"
+  ],
+
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_title": "SoopTalent 달란트 시장"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.sooplive.com/station/*"],
+      "js": ["src/content.js"],
+      "css": ["src/content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
